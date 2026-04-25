@@ -1,0 +1,123 @@
+================================================================================
+LIBRARY MANAGEMENT SYSTEM - DESCRIPTION
+================================================================================
+
+1. PROJECT OVERVIEW
+================================================================================
+
+A full-stack Library Management System built with Node.js, Express.js,
+PostgreSQL (Neon), and React.js.
+
+Features: Book management, user management, issue/return tracking,
+reservations, fines, and notifications.
+
+================================================================================
+2. TECHNOLOGY STACK
+================================================================================
+
+Backend:
+- Node.js + Express.js
+- PostgreSQL (Neon cloud database)
+- pg package for database connection
+
+Frontend:
+- React.js
+- React Router DOM for routing
+- Fetch API for HTTP requests
+- CSS for styling
+
+================================================================================
+3. FILES STRUCTURE
+================================================================================
+
+BACKEND FILES:
+- server.js          Main server entry point
+- db.js             Database connection
+- .env              Environment variables
+- schema.sql         SQL schema
+
+ROUTES (9 files):
+- userRoutes.js     /api/users
+- bookRoutes.js     /api/books
+- authorRoutes.js  /api/authors
+- categoryRoutes.js /api/categories
+- issueRoutes.js   /api/issues
+- reservationRoutes.js /api/reservations
+- librarianRoutes.js /api/librarians
+- notificationRoutes.js /api/notifications
+- fineRoutes.js    /api/fines
+
+CONTROLLERS (9 files):
+- Handle API requests (getAll, getById, create, update, delete)
+
+MODELS (9 files):
+- Database CRUD operations using pg pool
+
+FRONTEND FILES:
+- App.js            Main component with routes
+- index.js         React entry point
+- index.css        Global styles
+
+PAGES (12 files):
+- Dashboard.js     Statistics overview
+- BookList.js      All books with search
+- BookForm.js      Add/Edit book
+- UserList.js      All users
+- UserForm.js      Add/Edit user
+- IssueBook.js     Issue book to user
+- ReturnBook.js   Return book
+- IssueList.js    Issue history
+- LibrarianList.js Manage librarians
+- NotificationList.js View notifications
+- ReservationList.js Manage reservations
+- FineList.js     View fines
+
+SERVICES:
+- api.js           API functions for frontend
+
+================================================================================
+4. DATABASE SCHEMA (10 Tables)
+================================================================================
+
+1. users         - Library members
+2. authors      - Book authors
+3. categories   - Book categories
+4. books        - Available books
+5. issued_books - Book issues
+6. returns      - Book returns
+7. fines        - Late fees
+8. librarians   - Library staff
+9. reservations - Book reservations
+10. notifications - Messages
+
+================================================================================
+5. API ENDPOINTS
+================================================================================
+
+USERS: /api/users (CRUD)
+BOOKS: /api/books (CRUD + search)
+AUTHORS: /api/authors (CRUD)
+CATEGORIES: /api/categories (CRUD)
+ISSUES: /api/issues (issue/return/fine)
+RESERVATIONS: /api/reservations
+LIBRARIANS: /api/librarians (CRUD)
+NOTIFICATIONS: /api/notifications
+FINES: /api/fines (CRUD)
+
+================================================================================
+6. SETUP INSTRUCTIONS
+================================================================================
+
+BACKEND:
+cd backend
+npm install
+npm start
+(Server runs on port 5000)
+
+FRONTEND:
+cd frontend
+npm install
+npm start
+(App runs on port 3000)
+
+================================================================================

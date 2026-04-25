@@ -1,0 +1,54 @@
+================================================================================
+LIBRARY MANAGEMENT SYSTEM - REQUIREMENTS
+================================================================================
+
+1. FUNCTIONAL REQUIREMENTS
+================================================================================
+
+Users:
+- Add/Edit/Delete users
+- Roles: user, student, admin, librarian, teacher
+
+Books:
+- Add/Edit/Delete books
+- Search by title or category
+- Create new author/category inline
+
+Issue/Return:
+- Issue books to users
+- Return books
+- Track issue history
+- Calculate late fines ($1/day)
+
+Reservations:
+- Create/Delete reservations
+
+Fines:
+- View/Delete fines
+
+================================================================================
+2. TECHNICAL REQUIREMENTS
+================================================================================
+
+Backend: Node.js + Express.js + PostgreSQL (Neon)
+Frontend: React.js + React Router DOM
+Database: 10 tables with foreign keys
+
+================================================================================
+3. PAGES (12 Total)
+================================================================================
+
+Dashboard, BookList, BookForm, UserList, UserForm,
+IssueBook, ReturnBook, IssueList, LibrarianList,
+NotificationList, ReservationList, FineList
+
+================================================================================
+4. BUSINESS RULES
+================================================================================
+
+- Book available > 0 to issue
+- Due date = 14 days from issue
+- Fine = $1 per day late
+- Email must be unique
+
+================================================================================

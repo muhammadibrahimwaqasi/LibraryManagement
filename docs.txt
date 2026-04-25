@@ -1,0 +1,78 @@
+================================================================================
+LIBRARY MANAGEMENT SYSTEM - PROJECT DOCUMENTATION
+================================================================================
+
+1. TECHNOLOGY STACK
+================================================================================
+
+BACKEND:
+- Language: Node.js (JavaScript)
+- Framework: Express.js
+- Database: PostgreSQL (Neon Cloud)
+- Port: 5000
+
+FRONTEND:
+- Language: React.js (JavaScript)
+- Framework: React Router DOM
+- HTTP: Fetch API
+- Port: 3000
+
+================================================================================
+2. PROJECT STRUCTURE
+================================================================================
+
+backend/
+  server.js         - Express entry point
+  db.js            - PostgreSQL connection
+  routes/          - API routes (users, books, authors, categories, issues, reservations, librarians, notifications, fines)
+  controllers/     - Request handlers
+  models/          - Database operations
+
+frontend/src/
+  App.js           - Main component with routes
+  pages/           - 12 pages (Dashboard, BookList, BookForm, UserList, UserForm, IssueBook, ReturnBook, IssueList, LibrarianList, NotificationList, ReservationList, FineList)
+  services/api.js  - API functions
+
+================================================================================
+3. DATABASE - 10 TABLES
+================================================================================
+
+1. users         - id, name, email, role, created_at
+2. authors      - id, name
+3. categories   - id, name
+4. books        - id, title, author_id, category_id, quantity, available
+5. issued_books - id, user_id, book_id, issue_date, return_date
+6. returns      - id, issued_id, return_date
+7. fines        - id, user_id, amount, created_at
+8. librarians   - id, name, created_at
+9. reservations - id, user_id, book_id
+10. notifications - id, message, created_at
+
+================================================================================
+4. API ENDPOINTS
+================================================================================
+
+/api/users         - CRUD
+/api/books        - CRUD + search by title/category
+/api/authors      - CRUD
+/api/categories   - CRUD
+/api/issues       - issue/return/fine
+/api/reservations - create/delete
+/api/librarians   - CRUD
+/api/notifications - create/delete
+/api/fines        - CRUD
+
+================================================================================
+5. USER ROLES
+================================================================================
+
+user, student, admin, librarian, teacher
+
+================================================================================
+6. SETUP
+================================================================================
+
+Backend: cd backend && npm install && npm start
+Frontend: cd frontend && npm install && npm start
+
+================================================================================
