@@ -1,37 +1,33 @@
 ================================================================================
-LIBRARY MANAGEMENT SYSTEM - PROJECT DOCUMENTATION
+LIBRARY MANAGEMENT SYSTEM - DOCUMENTATION
 ================================================================================
 
 1. TECHNOLOGY STACK
 ================================================================================
 
-BACKEND:
-- Language: Node.js (JavaScript)
-- Framework: Express.js
-- Database: PostgreSQL (Neon Cloud)
-- Port: 5000
-
-FRONTEND:
-- Language: React.js (JavaScript)
-- Framework: React Router DOM
-- HTTP: Fetch API
-- Port: 3000
+BACKEND: Node.js, Express.js, PostgreSQL (Neon), pg package
+FRONTEND: React.js, React Router DOM, Fetch API
+PORTS: Backend 5000, Frontend 3000
 
 ================================================================================
 2. PROJECT STRUCTURE
 ================================================================================
 
 backend/
-  server.js         - Express entry point
-  db.js            - PostgreSQL connection
-  routes/          - API routes (users, books, authors, categories, issues, reservations, librarians, notifications, fines)
-  controllers/     - Request handlers
-  models/          - Database operations
+├── server.js           Express entry point
+├── db.js            PostgreSQL connection
+├── .env             Environment variables
+├── schema.sql       SQL schema
+├── models/          Database CRUD operations (9 files)
+├── controllers/     Request handlers (9 files)
+└── routes/          API routes (9 files)
 
 frontend/src/
-  App.js           - Main component with routes
-  pages/           - 12 pages (Dashboard, BookList, BookForm, UserList, UserForm, IssueBook, ReturnBook, IssueList, LibrarianList, NotificationList, ReservationList, FineList)
-  services/api.js  - API functions
+├── index.js         React entry point
+├── App.js           Main component with routes
+├── index.css       Global styles
+├── services/api.js API functions
+└── pages/          12 page components
 
 ================================================================================
 3. DATABASE - 10 TABLES
@@ -63,13 +59,30 @@ frontend/src/
 /api/fines        - CRUD
 
 ================================================================================
-5. USER ROLES
+5. PAGES (12)
+================================================================================
+
+Dashboard, BookList, BookForm, UserList, UserForm,
+IssueBook, ReturnBook, IssueList, LibrarianList,
+NotificationList, ReservationList, FineList
+
+================================================================================
+6. USER ROLES
 ================================================================================
 
 user, student, admin, librarian, teacher
 
 ================================================================================
-6. SETUP
+7. BUSINESS RULES
+================================================================================
+
+- Book available > 0 to issue
+- Due date = 14 days
+- Fine = PKR 500/day late
+- Email must be unique
+
+================================================================================
+8. SETUP
 ================================================================================
 
 Backend: cd backend && npm install && npm start

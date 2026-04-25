@@ -5,50 +5,96 @@ LIBRARY MANAGEMENT SYSTEM - REQUIREMENTS
 1. FUNCTIONAL REQUIREMENTS
 ================================================================================
 
-Users:
+USER MANAGEMENT:
 - Add/Edit/Delete users
+- Name, email, role fields
 - Roles: user, student, admin, librarian, teacher
 
-Books:
+BOOK MANAGEMENT:
 - Add/Edit/Delete books
+- Title, author, category, quantity fields
 - Search by title or category
-- Create new author/category inline
+- Create new author/category inline when adding book
+- Track available quantity
 
-Issue/Return:
-- Issue books to users
+AUTHORS:
+- Add/Edit/Delete authors
+- View all authors
+
+CATEGORIES:
+- Add/Edit/Delete categories
+- View all categories
+
+ISSUE/RETURN:
+- Issue books to registered users
 - Return books
 - Track issue history
-- Calculate late fines ($1/day)
+- Calculate late fines (PKR 500/day)
 
-Reservations:
+RESERVATIONS:
 - Create/Delete reservations
+- View all reservations
 
-Fines:
+FINES:
 - View/Delete fines
+
+LIBRARIANS:
+- Add/Delete librarians
+
+NOTIFICATIONS:
+- View/Delete notifications
 
 ================================================================================
 2. TECHNICAL REQUIREMENTS
 ================================================================================
 
-Backend: Node.js + Express.js + PostgreSQL (Neon)
-Frontend: React.js + React Router DOM
-Database: 10 tables with foreign keys
+BACKEND:
+- Node.js + Express.js
+- PostgreSQL (Neon)
+- MVC architecture
+- RESTful API
+
+FRONTEND:
+- React.js
+- React Router DOM
+- Functional components with hooks
+- Responsive design
 
 ================================================================================
 3. PAGES (12 Total)
 ================================================================================
 
-Dashboard, BookList, BookForm, UserList, UserForm,
-IssueBook, ReturnBook, IssueList, LibrarianList,
-NotificationList, ReservationList, FineList
+1. Dashboard       /
+2. BookList        /books
+3. BookForm       /books/add, /books/edit/:id
+4. UserList       /users
+5. UserForm      /users/add, /users/edit/:id
+6. IssueBook    /issue
+7. ReturnBook   /return
+8. IssueList    /issues
+9. LibrarianList /librarians
+10. NotificationList /notifications
+11. ReservationList /reservations
+12. FineList    /fines
 
 ================================================================================
 4. BUSINESS RULES
 ================================================================================
 
-- Book available > 0 to issue
-- Due date = 14 days from issue
-- Fine = $1 per day late
+- Book can only be issued if available > 0
+- Due date = 14 days from issue date
+- Late fine = PKR 500 per day
 - Email must be unique
+- Author and category optional for books
+
+================================================================================
+5. USER ROLES
+================================================================================
+
+- user     (default)
+- student
+- admin
+- librarian
+- teacher
 
 ================================================================================

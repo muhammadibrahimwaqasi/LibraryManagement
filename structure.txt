@@ -1,0 +1,114 @@
+================================================================================
+LIBRARY MANAGEMENT SYSTEM - FILE STRUCTURE
+================================================================================
+
+This document describes what each file/folder does in the project.
+
+================================================================================
+BACKEND (backend/)
+================================================================================
+
+CONFIGURATION:
+- package.json       - NPM dependencies (express, pg, cors, dotenv)
+- .env             - Environment variables (DATABASE_URL, PORT=5000)
+
+DATABASE CONNECTION:
+- db.js            - PostgreSQL connection using pg pool with SSL
+- schema.sql       - SQL to create all 10 database tables
+
+MAIN SERVER:
+- server.js        - Express app entry point, middleware setup, route registration
+
+MODELS (models/) - Database CRUD Operations:
+- UserModel.js      - SELECT, INSERT, UPDATE, DELETE for users
+- BookModel.js     - SELECT, INSERT, UPDATE, DELETE + search for books
+- AuthorModel.js   - SELECT, INSERT, UPDATE, DELETE for authors
+- CategoryModel.js - SELECT, INSERT, UPDATE, DELETE for categories
+- IssueModel.js    - issueBook, returnBook, calculateFine
+- ReservationModel.js - SELECT, INSERT, DELETE for reservations
+- LibrarianModel.js - SELECT, INSERT, UPDATE, DELETE for librarians
+- NotificationModel.js - SELECT, INSERT, DELETE for notifications
+- FineModel.js    - SELECT, INSERT, DELETE for fines
+
+CONTROLLERS (controllers/) - API Request Handlers:
+- userController.js      - getAll, getById, create, update, delete for users
+- bookController.js      - getAll, getById, create, update, delete, search for books
+- authorController.js   - getAll, getById, create, update, delete for authors
+- categoryController.js - getAll, getById, create, update, delete for categories
+- issueController.js    - getAll, getActive, issueBook, returnBook, calculateFine
+- reservationController.js - getAll, create, delete for reservations
+- librarianController.js  - getAll, getById, create, update, delete for librarians
+- notificationController.js - getAll, create, delete for notifications
+- fineController.js     - getAll, getByUser, create, delete for fines
+
+ROUTES (routes/) - API Endpoint Definitions:
+- userRoutes.js       - /api/users (GET, POST, PUT, DELETE)
+- bookRoutes.js     - /api/books (GET, POST, PUT, DELETE) + /api/books/search
+- authorRoutes.js   - /api/authors (GET, POST, PUT, DELETE)
+- categoryRoutes.js - /api/categories (GET, POST, PUT, DELETE)
+- issueRoutes.js   - /api/issues (GET) + /api/issues/issue, /return, /active
+- reservationRoutes.js - /api/reservations (GET, POST, DELETE)
+- librarianRoutes.js - /api/librarians (GET, POST, PUT, DELETE)
+- notificationRoutes.js - /api/notifications (GET, POST, DELETE)
+- fineRoutes.js    - /api/fines (GET, POST, DELETE)
+
+================================================================================
+FRONTEND (frontend/)
+================================================================================
+
+CONFIGURATION:
+- package.json     - NPM dependencies (react, react-dom, react-router-dom)
+- public/index.html - HTML template
+
+REACT ENTRY:
+- src/index.js        - Mounts App component to DOM
+
+MAIN APP:
+- src/App.js         - Router setup, navbar, route definitions
+
+STYLES:
+- src/index.css      - All CSS styles (responsive design for all screens)
+
+SERVICES:
+- src/services/api.js - API functions (getBooks, createUser, issueBook, etc.)
+
+PAGES (src/pages/) - UI Components:
+- Dashboard.js      - Statistics cards (/ route)
+- BookList.js      - Books table + search (/books)
+- BookForm.js      - Add/Edit book form (/books/add, /books/edit/:id)
+- UserList.js      - Users table (/users)
+- UserForm.js      - Add/Edit user form (/users/add, /users/edit/:id)
+- IssueBook.js    - Issue book form (/issue)
+- ReturnBook.js   - Return book table (/return)
+- IssueList.js    - All issues history (/issues)
+- LibrarianList.js - Librarians table (/librarians)
+- NotificationList.js - Notifications table (/notifications)
+- ReservationList.js - Reservations table (/reservations)
+- FineList.js     - Fines table (/fines)
+
+================================================================================
+DATABASE (PostgreSQL - Neon) - 10 TABLES
+================================================================================
+
+1. users         - id, name, email, role, created_at
+2. authors      - id, name
+3. categories   - id, name
+4. books        - id, title, author_id, category_id, quantity, available
+5. issued_books - id, user_id, book_id, issue_date, return_date
+6. returns      - id, issued_id, return_date
+7. fines        - id, user_id, amount, created_at
+8. librarians   - id, name, created_at
+9. reservations - id, user_id, book_id
+10. notifications - id, message, created_at
+
+================================================================================
+ROOT FILES
+================================================================================
+
+README.md         - Setup instructions and quick reference
+docs.txt          - This file structure document
+description.txt  - Project overview and technology stack
+requirements.txt - Functional and technical requirements
+structure.txt    - (this file) Detailed file descriptions
+
+================================================================================

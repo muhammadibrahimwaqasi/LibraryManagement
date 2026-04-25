@@ -39,7 +39,7 @@ class IssueModel {
       }
       
       const issueResult = await client.query(
-        'INSERT INTO issued_books (user_id, book_id) VALUES ($1, $2) RETURNING *',
+        'INSERT INTO issued_books (user_id, book_id, issue_date) VALUES ($1, $2, CURRENT_TIMESTAMP) RETURNING *',
         [userId, bookId]
       );
       

@@ -50,7 +50,7 @@ function FineList() {
                 <tr key={fine.id}>
                   <td>{fine.id}</td>
                   <td>{fine.user_name || 'N/A'}</td>
-                  <td>${parseFloat(fine.amount || 0).toFixed(2)}</td>
+                  <td>PKR {parseFloat(fine.amount || 0).toFixed(2)}</td>
                   <td><button onClick={() => handleDelete(fine.id)} className="btn btn-danger">Delete</button></td>
                 </tr>
               ))}
